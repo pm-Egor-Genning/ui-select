@@ -316,12 +316,13 @@ uis.controller('uiSelectCtrl',
       $scope.$broadcast('uis:activate');
 
       ctrl.open = true;
-      ctrl.switched = false;
       var obj = $(ctrl.searchInput[0]).parent();
       var lowBoundClient = $(window).height();
       var height = obj.offset().top + obj.parent().parent().parent().parent().height() - $(window).scrollTop();
       if (lowBoundClient <= height) {
         ctrl.switched = true;
+      } else {
+          ctrl.switched = false;
       }
 
       ctrl.activeIndex = ctrl.activeIndex >= ctrl.items.length ? 0 : ctrl.activeIndex;
